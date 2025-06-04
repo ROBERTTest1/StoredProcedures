@@ -1,17 +1,13 @@
 using Microsoft.EntityFrameworkCore;
 using StoredProcedure.Models;
 
-namespace  StoredProcedure.Data;
+namespace StoredProcedure.Data;
+
+public class StoredProcDbContext : DbContext
 {
-    public class StoredProcDbContext : DbContext
-    {
-        public StoredProcDbContext(DbContextOptions<StoredProcDbContext> options) : base(options){}
+    public StoredProcDbContext(DbContextOptions<StoredProcDbContext> options) : base(options){}
 
-        public DbSet<Employee> Employees { get; set; }
-        
-    }
-
-    
+    public DbSet<Employee> Employees { get; set; }
 }
 
 
