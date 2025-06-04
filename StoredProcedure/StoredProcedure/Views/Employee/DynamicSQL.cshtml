@@ -1,0 +1,59 @@
+<body style="padding": 10px">
+    <div class="col-xs-8">
+        <div class="panel-heading">
+            <h3>Employee Search Form</h3>
+        </div>
+        <form asp-controller="Employee" asp-action="DynamicSQL">
+            <div>
+                <label for="firstName">First Name</label>
+                <br />
+                <input type="text" name="firstName" placeholder="First Name" />
+            </div>
+            <div>
+                <label for="lastName">Last Name</label>
+                <br />
+                <input type="text" name="lastName" placeholder="Last Name" />
+            </div>
+            <div>
+                <label for="gender">Gender</label>
+                <br />
+                <select name="gender">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+            </div>
+            <br />
+            <div>
+                <label for="dynamicSQL">Dynamic SQL</label>
+                <br />
+                <input type="number" name="DynamicSQL" placeholder="DynamicSQL" />
+            </div>
+            <br />
+            <div>
+                <input type="submit" value="DynamicSQL" />
+            </form>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">First Name</th>
+                        <th scope="col">Last Name</th>
+                        <th scope="col">Gender</th>
+                        <th scope="col">Salary</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+                    @foreach (var employee in Model)
+                    {
+                        <tr>
+                            <td>@employee.FirstName</td>
+                            <td>@employee.LastName</td>
+                            <td>@employee.Gender</td>
+                            <td>@employee.Salary</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            </div>
+        
+    </div>
+</body>
